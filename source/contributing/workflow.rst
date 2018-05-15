@@ -70,7 +70,7 @@ CodeIgniter 使用 `Git-Flow
 在本页的最前面讨论过了 **master** 和 **develop** 分支。对于你的工作，*最佳实践* 是创建一个 *feature 本地分支* ，来保存一组相关的更改
 （源代码，单元测试，文档，变更日志等）。这个本地分支应该有个合适的命字，例如“fix/problem123”或“new/mind-reader”。
 
-例如，切换到 *develop* 分支下，然后创建一个新功能分支，并切换到新功能分支下::
+例如，确保你在 *develop* 分支下，然后创建一个新功能分支，再从 *develop* 分支切换到你创建的新功能分支::
 
     git checkout develop
     git checkout -b new/mind-reader
