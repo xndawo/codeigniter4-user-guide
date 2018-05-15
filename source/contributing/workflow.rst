@@ -80,19 +80,17 @@ CodeIgniter 使用 `Git-Flow
 提交
 ==========
 
-Your local changes need to be *committed* to save them in your local repository.
-This is where `contribution signing <signing>`_ comes in.
-
-You can have as many commits in a branch as you need to "get it right".
-For instance, to commit your work from a debugging session::
+你的本地更改必须提交保存到你的本地仓库。这就是你 `贡献签入 <signing>`_ 的地方。
+你可以在分支中一直提交到它对为止。
+例如，从一个调试会话中提交你的工作::
 
     git add .
     git commit -S -m "Find and fix the broken reference problem"
 
-Just make sure that your commits in a feature branch are all related.
+只要确保你在功能分支中的提交都是相关的。
 
-If you are working on two features at a time, then you will want to switch
-between them to keep the contributions separate. For instance::
+
+如果你同时在处理两个功能，那么你要在它们之间切换来保持贡献间的隔离，例如::
 
     git checkout new/mind-reader
     // work away
@@ -104,11 +102,9 @@ between them to keep the contributions separate. For instance::
     git commit -S -m "Fixed problem in DEF\Something"
     git checkout develop
 
-The last checkout makes sure that you end up in your *develop* branch as a
-starting point for your next session working with your repository.
-This is a good practice, as it is not always obvious which branch you are working in.
+T最后的 checkout 确保你最终进入*develop*分支，作为下一次与你的仓库会话的起点。这是一个良好的实践，因为你不会总是知道你在哪个分支下工作。
 
-Pushing Your Branch
+推送你的分支
 ===================
 
 At some point, you will decide that your feature branch is complete, or that
