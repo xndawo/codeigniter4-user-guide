@@ -1,71 +1,51 @@
 =====================
-Contribution Workflow
+贡献的工作流程
 =====================
 
-Much of the workflow for contributing to CodeIgniter (or any project) involves
-understanding how `Git <https://git-scm.com/>`_ is used to 
-manage a shared repository and contributions to it.
-Examples below use the Git bash shell, to be as platform neutral as
-possible. Your IDE may make some of these easier.
+大部分为 CodeIgniter（或其它项目）提供贡献的工作流程都需要你了解 `Git <https://git-scm.com/>`_ 是如何管理一个共享仓库，
+及如何为其提供贡献的。下面的例子使用 Git 的 bash shell 来尽可能地保持平台无关性，你用 IDE 干这些活可能更容易些。
 
-Some conventions used below, which you will need to provide appropriate
-values for when you try these::
+下面是用到的一些约定，如果你要用它们请为它们提供合适的值 ::
 
-    ALL_PROJECTS    // folder location with all your projects in subfolders, eg /lampp/htdocs
-    YOUR_PROJECT    // folder containing the project you are working on, inside ALL_PROJECTS
-    ORIGIN_URL      // the cloning URL for your repository fork
-    UPSTREAM_URL    // the cloning URL for the CodeIgniter4 repository
+    ALL_PROJECTS    // 存放你所有项目（一个项目一个子文件夹）的文件夹，如 /lampp/htdocs
+    YOUR_PROJECT    // 你的单个项目文件夹, 在 ALL_PROJECTS 文件夹之内
+    ORIGIN_URL      // 你 fork 来的仓库的克隆地址
+    UPSTREAM_URL    // CodeIgniter4 仓库的克隆地址
 
-Branching
+分支
 =========
 
-CodeIgniter uses the `Git-Flow
-<http://nvie.com/posts/a-successful-git-branching-model/>`_ branching model,
-which requires all pull requests to be sent to the "develop" branch. This is
-where the next planned version will be developed. The "master" branch will
-always contain the latest stable version and is kept clean so a "hotfix" (e.g:
-an emergency security patch) can be applied to master to create a new version,
-without worrying about other features holding it up. For this reason all
-commits need to be made to "develop" and any sent to "master" will be closed
-automatically. If you have multiple changes to submit, please place each
-change into their own branch on your fork.
+CodeIgniter 使用 `Git-Flow
+<http://nvie.com/posts/a-successful-git-branching-model/>`_ 分支模式，这个模式要求将所有的拉取请求都发送到“develop”分支。
+这个分支是放下一个计划开发版的地方。“master”分支将始终包含最新稳定版并保持清洁，因此可以将“hotfix”（如：紧急安全修补程序）
+应用于“master”分支来创建一个新版本，而无需担心其它分支受到影响。因此，必须将所有提交都应用到“develop”，任何发送给“master”的提
+交都会被自动关闭。 如果你有多个更改需要提交，请将每个更改放入你 fork 的各自分支中去。
 
-One thing at a time: a pull request should only contain one change. That does
-not mean only one commit, but one change - however many commits it took. The
-reason for this is that if you change X and Y but send a pull request for both
-at the same time, we might really want X but disagree with Y, meaning we
-cannot merge the request. Using the Git-Flow branching model you can create
-new branches for both of these features and send two requests.
+一次办一件事：一个拉取请求应该只包含一个更改。这并不是只能有一个提交的意思，是一次更改，但可以包含许多提交。这样规定的理由是，
+假如你有两个更改 X 和 Y，但同时发送了这两者的拉取请求，可能我们真正想要的是 X 而不想要 Y ，这使得我们无法合并请求。
+应用 Git-Flow 模式，你可以为这两个更改创建新分支并分别发送请求。
 
-Forking
+叉取
 =======
 
-You work with a fork of the CodeIgniter4 repository. This is a copy of our repository,
-in your github account. You can make changes to your forked repository, while
-you cannot do the same with the shared one - you have to submit pull requests
-to it instead.
+你使用的是 CodeIgniter4 的一个 fork，这个 fork 是你 github 账号下，我们仓库的一个副本。你可以对你 fork 来的仓库进行更改，
+但不能对原始仓库这样干，如果你想更改原始仓库，请提交拉取请求。
 
-`Creating a fork <https://help.github.com/articles/fork-a-repo/>`_ is done through the Github website. Navigate to `our
-repository <https://github.com/bcit-ci/CodeIgniter4>`_, 
-click the **Fork** button in the top-right of the page, and choose which account or
-organization of yours should contain that fork.
+通过 Github 网站就可以 `创建一个 fork <https://help.github.com/articles/fork-a-repo>`_ 。 导航到 `我们的仓库 <https://github.com/bcit-ci/CodeIgniter4>`_，单击页面右上角的 Fork 按钮，然后选择用哪个帐号或组织来包含该 fork。
 
-Cloning
+克隆
 =======
 
-You *could* work on your repository using Github's web interface, but that is
-awkward. Most developers will clone their repository to their local system,
-and work with it there.
+你 *可以* 使用 GitHub 的 web 界面处理你的仓库，但这很笨拙，大多数开发者会将他们的仓库克隆到本地系统，然后在本地使用它。
 
-On Github, navigate to your forked repository, click **Clone or download**, and
-copy the cloning URL shown. We will refer to this as ORIGIN_URL.
+在 Github 上，导航到你 fork 来的仓库，单击 **Clone** 或 **Download**，然后复制显示的克隆地址，我们称这个地址为 ORIGIN_URL
 
-Clone your repository, leaving a local folder for you to work with::
+将你的仓库克隆到本地使用::
 
     cd ALL_PROJECTS
     git clone ORIGIN_URL
 
-Synching
+同步
 ========
 
 Within your local repository, Git will have created an alias, **origin**, for the 
