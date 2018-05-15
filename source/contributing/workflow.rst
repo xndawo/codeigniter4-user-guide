@@ -48,48 +48,36 @@ CodeIgniter 使用 `Git-Flow
 同步
 ========
 
-Within your local repository, Git will have created an alias, **origin**, for the 
-Github repository it is bound to. You want to create an alias for the shared
-repository, so that you can "synch" the two, making sure that your repository
-includes any other contributions that have been merged by us into the shared repo::
+在你的本地仓库中，Git会为它所绑定的Github仓库（你的 fork 库）创建一个别名：**origin**。 你希望为共享库（官方库）创建一个别名，
+以便“同步”这两个仓库，来确保你的仓库包含由我们合并到共享库中的任何其他贡献::
 
     git remote add upstream UPSTREAM_URL
 
-Then synchronizing is done by pulling from us and pushing to you. This is normally
-done locally, so that you can resolve any merge conflicts. For instance, to 
-synchronize **develop** branches::
+然后通过我们拉取并推送给你来完成同步。这个过程通常在本地完成，这样你就可以解决任何合并冲突。例如，同步 **develop** 分支::
 
     git checkout develop
     git pull upstream develop
     git push origin develop
 
-You might get merge conflicts when you pull from upstream. It is your responsibility
-to resolve those locally, so that you can continue collaborating with the shared
-repository. Basically, the shared repository is updated in the order that contributions 
-are merged into it, not in the order that they might have been submitted. 
-If two PRs update the same piece of code, then the first one to be merged 
-will take precedence, even if it causes problems for other contributions.
+当你从 upstream 中拉取时可能会遇到合并冲突。你有责任在本地解决这些问题，这样你就可以继续与共享库合作。基本上，共享库按贡
+献被合并的顺序更新，而不是按已提交的顺序更新。如果有2个拉取请求修改了同一块代码，也是首先被合并的贡献优先更新到共享库，哪怕因此导致另外一个贡献出问题。
 
-It is a good idea to synchronize repositories when the shared one changes.
+一旦共享库有更改，同步仓库是个不错的主意。
 
-Branching Revisited
+重新审视分支
 ===================
 
-The top of this page talked about the **master** and **develop** branches. 
-The *best practice* for your work is to create a *feature branch* locally,
-to hold a group of related changes (source, unit testing, documentation,
-change log, etc). This local branch should be named appropriately,
-for instance "fix/problem123" or "new/mind-reader".
+在本页的最前面讨论过了 **master** 和 **develop** 分支。对于你的工作，*最佳实践* 是创建一个 *feature 本地分支* ，来保存一组相关的更改
+（源代码，单元测试，文档，变更日志等）。这个本地分支应该有个合适的命字，例如“fix/problem123”或“new/mind-reader”。
 
-For instance, make sure you are in the *develop* branch, and create a
-new feature branch, based on *develop*, for a new feature you are creating::
+例如，切换到 *develop* 分支下，然后创建一个新功能分支，并切换到新功能分支下::
 
     git checkout develop
     git checkout -b new/mind-reader
 
-Saving changes only updates your local working area.
+更新你的本地工作区域才能保存更改。
 
-Committing
+提交
 ==========
 
 Your local changes need to be *committed* to save them in your local repository.
