@@ -102,65 +102,50 @@ CodeIgniter 使用 `Git-Flow
     git commit -S -m "Fixed problem in DEF\Something"
     git checkout develop
 
-T最后的 checkout 确保你最终进入*develop*分支，作为下一次与你的仓库会话的起点。这是一个良好的实践，因为你不会总是知道你在哪个分支下工作。
+最后一个 checkout 确保你最终进入*develop*分支，作为下一次与你仓库会话的起点。这是一个良好的实践，因为你不会总是知道自己在哪个分支下。
 
 推送你的分支
 ===================
 
-At some point, you will decide that your feature branch is complete, or that
-it could benefit from a review by fellow developers.
+有时，你可能想知道自己的功能分支是否完整，或想从其它开发者的审核中受益。
 
 .. note::
-    Remember to synch your local repo with the shared one before pushing!
-    It is a lot easier to resolve conflicts at this stage.
+    请记住在推送前将你的本地库与共享库同步！ 在这个阶段解决冲突要容易得多。
 
-Synchronize your repository::
+同步你的仓库::
 
     git checkout develop
     git pull upstream develop
     git push origin develop
-    
-Bring your feature branch up to date::
+    
+更新你的功能分支::
 
     git checkout new/mind-reader
     git merge develop
 
-And finally push your local branch to your github repository::
+最后将你的本地分支推送到 github 仓库::
 
     git push origin new/mind-reader
 
-Pull Requests
+拉取请求
 =============
 
-On Github, you propose your changes one feature branch at a time, by
-switching to the branch you wish to contribute, and then clicking
-on "New pull request".
+在 Github 上，切换到你想贡献的分支，单击“New pull request”,建议你每次修改一个功能分支。
 
-Make sure the pull request is for the shared **develop** branch, or it
-may be rejected.
+确保你的拉取请求是在共享的开发分支上，否则可能会被拒绝。
 
-Make sure that the PR title is helpful for the maintainers and other developers.
-Add any comments appropriate, for instance asking for review.
+确保拉取请求的标题对维护者和其它开发者是有帮助的。添加合适的注释，如：要求审核。
 
 .. note::
-    If you do not provide a title for your PR, the odds of it being summarily rejected
-    rise astronomically.
+    如果你的拉取请求没有标题，会有极大的可能被拒绝。
 
-When your PR is submitted, a continuous integration task will be triggered,
-running all the unit tests as well as any other checking we have configured for it.
-If the unit tests fail, or if there are merge conflicts, your PR will not
-be mergeable until fixed.
+当你拉曲请求提交后，会触发一个持续集成任务，执行所有单元测试以及我们为其配置的任何其他检查。 如果单元测试失败，或者存在合并冲突，那么在修复之前，你的拉取请求将不可合并。
 
-Fix such changes locally, commit them properly, and then push your branch again.
-That will update the PR automatically, and re-run the CI tests. You don't need 
-to raise a new PR.
+在本地修复这些更改，正确提交它们，然后再次推送你的分支。 这将自动更新拉取请求，并重新运行CI测试。 你不需要提出新的拉取请求。
 
-If your PR does not follow our contribution guidelines, or is incomplete,
-the codebase maintainers will comment on it, pointing out what
-needs fixing. 
+如果你的拉取请求没有遵循我们的贡献指南，或者不完整，代码库维护人员会对其给出评论，指出需要解决的问题。
 
-Cleanup
+清理
 =======
 
-If your PR is accepted and merged into the shared repository, you can delete
-that branch in your github repository as well as locally.
+如果你的拉取请求被接受并合并到共享存库，你可以从 github 仓库及本地库中删除该分支。
